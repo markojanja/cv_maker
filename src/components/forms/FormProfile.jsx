@@ -1,8 +1,12 @@
-const FormProfile = ({ handleChange, handleSubmit, profileText }) => {
+const FormProfile = ({ profile, setProfile }) => {
+  function handleProfileInput(e) {
+    setProfile(e.target.value);
+  }
+
   return (
-    <form className="form" onSubmit={() => handleSubmit}>
+    <form className="form">
       <h2>Profile</h2>
-      <textarea type="text" name="Your profile" onChange={handleChange} placeholder="Profile" required value={profileText} rows={5} />
+      <textarea type="text" name="Your profile" onChange={handleProfileInput} placeholder="Profile" required value={profile} rows={5} />
     </form>
   );
 };

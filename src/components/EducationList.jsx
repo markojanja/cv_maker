@@ -1,9 +1,30 @@
 import FormEducation from './forms/FormEducation';
 
-const EducationList = ({ educationList, onChange, onSubmit, education, handleToggle, toggle, setCurrentEducation, handleCancel, itemToEdit, handleSave }) => {
+const EducationList = ({
+  educationList,
+  setEducation,
+  education,
+  onSubmit,
+  toggleForm,
+  setToggleForm,
+  activeEducation,
+  setCurrentEducation,
+  handleSave,
+  handleDelete,
+  handleCancel,
+}) => {
+  function handleToggle() {
+    setToggleForm(!toggleForm);
+  }
+
   function toggleAndEdit(obj) {
     handleToggle();
     setCurrentEducation(obj);
+  }
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setEducation({ ...education, id: Math.random() * 10000, [name]: value });
   }
 
   return (
@@ -11,17 +32,18 @@ const EducationList = ({ educationList, onChange, onSubmit, education, handleTog
       <div className="education-header">
         <h2>education</h2>
         <button onClick={handleToggle}>+</button>
-        {toggle && (
+        {toggleForm && (
           <FormEducation
-            onChange={onChange}
+            onChange={handleChange}
             onSubmit={onSubmit}
             education={education}
-            handleCancel={handleCancel}
-            itemToEdit={itemToEdit}
+            handleDelete={handleDelete}
+            activeEducation={activeEducation}
             handleSave={handleSave}
+            handleCancel={handleCancel}
           />
         )}
-        {!toggle && (
+        {!toggleForm && (
           <div>
             {educationList.map((item, index) => (
               <div key={index}>

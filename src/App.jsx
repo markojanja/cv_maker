@@ -8,70 +8,40 @@ import EducationList from './components/EducationList';
 import './App.css';
 
 function App() {
-  const testList = [];
-
-  const [toggleForm, setToggleForm] = useState(true);
-
-  const [personalInfo, setPersonalInfo] = useState({
-    fullname: '',
-    email: '',
-    address: '',
-    phone: '',
-  });
-  const [education, setEducation] = useState({
+  const defaultEducation = {
     school: '',
     degree: '',
     startDate: '',
     endDate: '',
-  });
+  };
+  const defaultInfo = {
+    fullname: '',
+    email: '',
+    address: '',
+    phone: '',
+  };
+  const [toggleForm, setToggleForm] = useState(true);
+  const [personalInfo, setPersonalInfo] = useState({ ...defaultInfo });
   const [profile, setProfile] = useState('');
-  const [educationList, setEducationList] = useState([...testList]);
-  const [educationToEdit, setEducationEdit] = useState(null);
+  const [education, setEducation] = useState({ ...defaultEducation });
+  const [educationList, setEducationList] = useState([]);
+  const [activeEducation, setActiveEducation] = useState(null);
 
-  // info
-
-  function handlePersonalInfoChange(e) {
-    const { name, value } = e.target;
-    setPersonalInfo({
-      ...personalInfo,
-      [name]: value,
-    });
-  }
-  // profile
-  function handleProfileInput(e) {
-    setProfile(e.target.value);
-  }
-
-  // education
-  function handleEduSubmit(e) {
+  function addEducation(e) {
     e.preventDefault();
     setEducationList([...educationList, education]);
-    setEducation({
-      school: '',
-      degree: '',
-      startDate: '',
-      endDate: '',
-    });
+    setEducation({ ...defaultEducation });
     setToggleForm(!toggleForm);
   }
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setEducation({ ...education, id: Math.random() * 10000, [name]: value });
-  }
-  // handle toggle
-  function handleToggle() {
-    setToggleForm(!toggleForm);
-  }
+
   function setCurrentEducation(obj) {
     setEducation({ ...obj });
-    setEducationEdit({ ...education });
+    setActiveEducation({ ...obj });
   }
-  function handleCancel() {
-    setToggleForm(!toggleForm);
-  }
+
   function handleSave() {
     const updatedEduList = educationList.map((existingTask) => {
-      if (existingTask.id === educationToEdit.id) {
+      if (existingTask.id === activeEducation.id) {
         console.log('found task');
         return {
           ...existingTask,
@@ -85,13 +55,22 @@ function App() {
     });
 
     setEducationList(updatedEduList);
-    setEducationEdit(null);
-    setEducation({
-      school: '',
-      degree: '',
-      startDate: '',
-      endDate: '',
+    setActiveEducation(null);
+    setEducation({ ...defaultEducation });
+    setToggleForm(!toggleForm);
+  }
+  function handleDelete() {
+    const updatedEduList = educationList.filter((item) => {
+      return item.id !== activeEducation.id;
     });
+    setEducationList(updatedEduList);
+    setActiveEducation(null);
+    setEducation({ ...defaultEducation });
+    setToggleForm(!toggleForm);
+  }
+  function handleCancel() {
+    setActiveEducation(null);
+    setEducation({ ...defaultEducation });
     setToggleForm(!toggleForm);
   }
 
@@ -100,20 +79,20 @@ function App() {
       <Navbar />
       <Main>
         <aside className="sidebar">
-          <FormInfo handleChange={handlePersonalInfoChange} handleSubmit={null} personalInfo={personalInfo} />
-
-          <FormProfile handleChange={handleProfileInput} handleSubmit={null} profileText={profile} />
+          <FormInfo setPersonalInfo={setPersonalInfo} personalInfo={personalInfo} />
+          <FormProfile profile={profile} setProfile={setProfile} />
           <EducationList
             educationList={educationList}
             education={education}
-            onChange={handleChange}
-            onSubmit={handleEduSubmit}
-            handleToggle={handleToggle}
-            toggle={toggleForm}
+            setEducation={setEducation}
+            activeEducation={activeEducation}
+            toggleForm={toggleForm}
+            onSubmit={addEducation}
+            setToggleForm={setToggleForm}
             setCurrentEducation={setCurrentEducation}
-            handleCancel={handleCancel}
-            itemToEdit={educationToEdit}
             handleSave={handleSave}
+            handleDelete={handleDelete}
+            handleCancel={handleCancel}
           />
         </aside>
         <section className="section">
