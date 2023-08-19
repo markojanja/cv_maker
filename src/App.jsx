@@ -94,16 +94,16 @@ function App() {
             handleCancel={handleCancel}
           />
         </aside>
-        <section className="section">
+        <section className="cv-section">
           <div className="resume-container">
             <div className="r-header">
-              <p>{personalInfo.fullname}</p>
+              <h2>{personalInfo.fullname}</h2>
               <p>{personalInfo.email}</p>
               <p>{personalInfo.address}</p>
               <p>{personalInfo.phone}</p>
             </div>
-            <div>
-              <h2>Profile</h2>
+            <div className="profile-section">
+              <h3>Profile</h3>
               <p>{profile}</p>
             </div>
             <div>

@@ -31,5 +31,33 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  padding: 10px;
+  min-width: 35%;
+  max-width: 40%;
+  gap: 1.2rem;
+}
+.cv-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: lightgray;
+  align-items: center;
+  justify-content: center;
+  padding: 5% 10%;
+}
+.resume-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  aspect-ratio: 0.5;
+  font-weight: 500;
+}
+.r-header {
   padding: 20px;
+  background-color: bisque;
+}
+.profile-section {
+  padding: 20px 40px;
+  text-align: left;
+  word-break: normal;
 }
