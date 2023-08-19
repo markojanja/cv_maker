@@ -1,6 +1,7 @@
 .info-form,
 .profile-form,
-.edu-form {
+.edu-form,
+.job-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +10,7 @@
   padding: 10px;
   width: 100%;
 }
-.edu-form .input-group {
+.input-group {
   display: flex;
   align-items: center;
   justify-content: space-between;

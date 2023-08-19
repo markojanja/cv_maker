@@ -48,7 +48,10 @@ h1 {
 .resume-container {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   background-color: #fff;
+  height: 90%;
+  width: 90%;
   aspect-ratio: 0.5;
   font-weight: 500;
 }

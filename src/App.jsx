@@ -5,6 +5,7 @@ import Navbar from './components/navbar/Navbar';
 import FormInfo from './components/forms/FormInfo';
 import FormProfile from './components/forms/FormProfile';
 import EducationList from './components/EducationList';
+import JobList from './components/JobList';
 import './App.css';
 
 function App() {
@@ -20,12 +21,22 @@ function App() {
     address: '',
     phone: '',
   };
+  const defaultJob = {
+    company: '',
+    position: '',
+    description: '',
+    startDate: '',
+    endDate: '',
+  };
   const [toggleForm, setToggleForm] = useState(true);
   const [personalInfo, setPersonalInfo] = useState({ ...defaultInfo });
   const [profile, setProfile] = useState('');
   const [education, setEducation] = useState({ ...defaultEducation });
   const [educationList, setEducationList] = useState([]);
   const [activeEducation, setActiveEducation] = useState(null);
+  const [job, setJob] = useState({ ...defaultJob });
+  const [jobList, setJobList] = useState([]);
+  const [activeJob, setActiveJob] = useState(null);
 
   function addEducation(e) {
     e.preventDefault();
@@ -72,6 +83,7 @@ function App() {
     setEducation({ ...defaultEducation });
     setToggleForm(!toggleForm);
   }
+  //job
 
   return (
     <div className="app">
@@ -93,6 +105,8 @@ function App() {
             handleDelete={handleDelete}
             handleCancel={handleCancel}
           />
+
+          <JobList job={job} setJob={setJob} jobList={jobList} setJobList={setJobList} activeJob={activeJob} setActiveJob={setActiveJob} />
         </aside>
         <section className="cv-section">
           <div className="resume-container">
