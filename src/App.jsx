@@ -42,7 +42,6 @@ function App() {
   function handleSave() {
     const updatedEduList = educationList.map((existingTask) => {
       if (existingTask.id === activeEducation.id) {
-        console.log('found task');
         return {
           ...existingTask,
           school: education.school,
