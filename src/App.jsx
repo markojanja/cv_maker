@@ -21,20 +21,20 @@ function App() {
     address: '',
     phone: '',
   };
-  const defaultJob = {
-    company: '',
-    position: '',
-    description: '',
-    startDate: '',
-    endDate: '',
-  };
+  // const defaultJob = {
+  //   company: '',
+  //   position: '',
+  //   description: '',
+  //   startDate: '',
+  //   endDate: '',
+  // };
   const [toggleForm, setToggleForm] = useState(true);
   const [personalInfo, setPersonalInfo] = useState({ ...defaultInfo });
   const [profile, setProfile] = useState('');
   const [education, setEducation] = useState({ ...defaultEducation });
   const [educationList, setEducationList] = useState([]);
   const [activeEducation, setActiveEducation] = useState(null);
-  const [job, setJob] = useState({ ...defaultJob });
+  // const [job, setJob] = useState({ ...defaultJob });
   const [jobList, setJobList] = useState([]);
   const [activeJob, setActiveJob] = useState(null);
 
@@ -85,6 +85,11 @@ function App() {
   }
   //job
 
+  function addJob(job) {
+    setJobList([...jobList, job]);
+  }
+  console.log(jobList);
+
   return (
     <div className="app">
       <Navbar />
@@ -106,7 +111,7 @@ function App() {
             handleCancel={handleCancel}
           />
 
-          <JobList job={job} setJob={setJob} jobList={jobList} setJobList={setJobList} activeJob={activeJob} setActiveJob={setActiveJob} />
+          <JobList addJob={addJob} />
         </aside>
         <section className="cv-section">
           <div className="resume-container">
@@ -120,9 +125,19 @@ function App() {
               <h3>Profile</h3>
               <p>{profile}</p>
             </div>
-            <div>
+            <div className="education-section">
+              <h3>Education</h3>
               {educationList.map((item) => (
                 <p key={item.id}>{item.school}</p>
+              ))}
+            </div>
+            <div className="experience-section">
+              <h3>Experience</h3>
+              {jobList.map((item) => (
+                <div key={item.id}>
+                  <p>{item.company}</p>
+                  <p>{item.position}</p>
+                </div>
               ))}
             </div>
           </div>
