@@ -137,6 +137,7 @@ function App() {
                 <div key={item.id}>
                   <p>{item.company}</p>
                   <p>{item.position}</p>
+                  <p>{item.description}</p>
                 </div>
               ))}
             </div>
