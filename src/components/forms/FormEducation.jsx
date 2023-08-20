@@ -1,5 +1,4 @@
 import ButtonGroup from '../ButtonGroup';
-import './Forms.css';
 const FormEducation = ({ onChange, onSubmit, handleCancel, handleDelete, education, activeEducation, handleSave }) => {
   return (
     <form className="edu-form" onSubmit={onSubmit}>

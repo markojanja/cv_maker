@@ -1,4 +1,3 @@
-import './Forms.css';
 import ButtonGroup from '../ButtonGroup';
 
 const FormJob = ({ job, active, setJob, addJob, setToggle, handleSaveJob, handleDeleteJob }) => {

@@ -1,4 +1,3 @@
-import './Forms.css';
 const FormInfo = ({ personalInfo, setPersonalInfo }) => {
   function handlePersonalInfoChange(e) {
     const { name, value } = e.target;

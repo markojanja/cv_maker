@@ -1,4 +1,3 @@
-import './Forms.css';
 const FormProfile = ({ profile, setProfile }) => {
   function handleProfileInput(e) {
     setProfile(e.target.value);
