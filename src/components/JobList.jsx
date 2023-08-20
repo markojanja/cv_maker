@@ -1,7 +1,7 @@
 import FormJob from './forms/FormJob';
 import { useState } from 'react';
 
-const JobList = ({ addJob, jobList, handleSaveJob }) => {
+const JobList = ({ addJob, jobList, handleSaveJob, handleDeleteJob }) => {
   const defaultJob = {
     company: '',
     position: '',
@@ -29,11 +29,21 @@ const JobList = ({ addJob, jobList, handleSaveJob }) => {
         <h2>Experience</h2>
         <button onClick={() => handleToggle()}>+</button>
       </div>
-      {toggle && <FormJob job={job} active={activeJob} setJob={setJob} addJob={addJob} setToggle={setToggle} handleSaveJob={handleSaveJob} />}
+      {toggle && (
+        <FormJob
+          job={job}
+          active={activeJob}
+          setJob={setJob}
+          addJob={addJob}
+          setToggle={setToggle}
+          handleSaveJob={handleSaveJob}
+          handleDeleteJob={handleDeleteJob}
+        />
+      )}
       {!toggle && (
         <div>
           {jobList.map((item) => (
-            <div key={item.id}>
+            <div className="sidebar-card" key={item.id}>
               <p>{item.company}</p>
               <button onClick={() => EditJob(item)}>edit</button>
             </div>

@@ -7,3 +7,78 @@
   min-height: 100vh;
   min-width: 100%;
 }
+.button-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.button-group button,
+.sidebar button {
+  display: inline-block;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.info-form,
+.profile-form,
+.edu-form,
+.job-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  width: 100%;
+}
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  gap: 1rem;
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid lightgrey;
+  width: 90%;
+}
+.sidebar-header {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+}
+.sidebar-header h2 {
+  flex: 1;
+}
+.sidebar input,
+.sidebar textarea {
+  width: 90%;
+  margin: 0 auto;
+  padding: 2px;
+  font-size: 1rem;
+}
+.sidebar-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  gap: 20px;
+  padding: 10px;
+}
+.sidebar p {
+  flex: 1;
+  text-align: left;
+}
