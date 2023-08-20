@@ -47,7 +47,7 @@ const EducationList = ({
       {!toggleForm && (
         <div>
           {educationList.map((item, index) => (
-            <div key={index}>
+            <div className="sidebar-card" key={index}>
               <p>{item.school}</p>
               <button onClick={() => toggleAndEdit(item)}>edit</button>
             </div>

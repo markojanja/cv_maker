@@ -59,8 +59,17 @@ h1 {
   padding: 20px;
   background-color: bisque;
 }
-.profile-section {
+.profile-section,
+.education-section,
+.experience-section {
   padding: 20px 40px;
   text-align: left;
   word-break: normal;
+}
+
+.button-group button {
+  display: inline-block;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }

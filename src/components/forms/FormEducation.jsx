@@ -1,3 +1,4 @@
+import ButtonGroup from '../ButtonGroup';
 import './Forms.css';
 const FormEducation = ({ onChange, onSubmit, handleCancel, handleDelete, education, activeEducation, handleSave }) => {
   return (
@@ -8,21 +9,7 @@ const FormEducation = ({ onChange, onSubmit, handleCancel, handleDelete, educati
         <input type="text" name="startDate" placeholder="start date" value={education.startDate} onChange={onChange} />
         <input type="text" name="endDate" placeholder="end date" value={education.endDate} onChange={onChange} />
       </div>
-      {!activeEducation ? (
-        <button type="submit">add</button>
-      ) : (
-        <>
-          <button type="button" onClick={handleSave}>
-            save
-          </button>
-          <button type="button" onClick={handleCancel}>
-            cancel
-          </button>
-          <button type="button" onClick={handleDelete}>
-            delete
-          </button>
-        </>
-      )}
+      {!activeEducation ? <button type="submit">add</button> : <ButtonGroup handleSave={handleSave} handleCancel={handleCancel} handleDelete={handleDelete} />}
     </form>
   );
 };

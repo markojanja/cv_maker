@@ -98,6 +98,14 @@ function App() {
     setJobList(updated);
   }
 
+  function handleDeleteJob(active) {
+    const updated = jobList.filter((item) => {
+      console.log(item, active);
+      return item.id !== active.id;
+    });
+    setJobList(updated);
+  }
+
   return (
     <div className="app">
       <Navbar />
@@ -119,7 +127,7 @@ function App() {
             handleCancel={handleCancel}
           />
 
-          <JobList addJob={addJob} jobList={jobList} handleSaveJob={handleSaveJob} />
+          <JobList addJob={addJob} jobList={jobList} handleSaveJob={handleSaveJob} handleDeleteJob={handleDeleteJob} />
         </aside>
         <section className="cv-section">
           <div className="resume-container">
