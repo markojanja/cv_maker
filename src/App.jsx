@@ -21,22 +21,13 @@ function App() {
     address: '',
     phone: '',
   };
-  // const defaultJob = {
-  //   company: '',
-  //   position: '',
-  //   description: '',
-  //   startDate: '',
-  //   endDate: '',
-  // };
   const [toggleForm, setToggleForm] = useState(true);
   const [personalInfo, setPersonalInfo] = useState({ ...defaultInfo });
   const [profile, setProfile] = useState('');
   const [education, setEducation] = useState({ ...defaultEducation });
   const [educationList, setEducationList] = useState([]);
   const [activeEducation, setActiveEducation] = useState(null);
-  // const [job, setJob] = useState({ ...defaultJob });
   const [jobList, setJobList] = useState([]);
-  const [activeJob, setActiveJob] = useState(null);
 
   function addEducation(e) {
     e.preventDefault();
@@ -53,6 +44,7 @@ function App() {
   function handleSave() {
     const updatedEduList = educationList.map((existingTask) => {
       if (existingTask.id === activeEducation.id) {
+        console.log('task found');
         return {
           ...existingTask,
           school: education.school,
@@ -88,7 +80,23 @@ function App() {
   function addJob(job) {
     setJobList([...jobList, job]);
   }
-  console.log(jobList);
+  function handleSaveJob(job, active) {
+    const updated = jobList.map((existingJob) => {
+      if (existingJob.id === active.id) {
+        return {
+          ...existingJob,
+          company: job.company,
+          position: job.position,
+          description: job.description,
+          startDate: job.startDate,
+          endDate: job.endDate,
+        };
+      }
+      return existingJob;
+    });
+
+    setJobList(updated);
+  }
 
   return (
     <div className="app">
@@ -111,7 +119,7 @@ function App() {
             handleCancel={handleCancel}
           />
 
-          <JobList addJob={addJob} />
+          <JobList addJob={addJob} jobList={jobList} handleSaveJob={handleSaveJob} />
         </aside>
         <section className="cv-section">
           <div className="resume-container">

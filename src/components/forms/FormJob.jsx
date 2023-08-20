@@ -1,17 +1,6 @@
 import './Forms.css';
-import { useState } from 'react';
 
-const FormJob = ({ addJob }) => {
-  const defaultJob = {
-    company: '',
-    position: '',
-    description: '',
-    startDate: '',
-    endDate: '',
-  };
-
-  const [job, setJob] = useState(defaultJob);
-
+const FormJob = ({ job, active, setJob, addJob, setToggle, handleSaveJob }) => {
   function handleInput(e) {
     const { name, value } = e.target;
 
@@ -21,7 +10,25 @@ const FormJob = ({ addJob }) => {
   function handleSubmit(e) {
     e.preventDefault();
     addJob({ ...job, id: Date.now() });
-    setJob(defaultJob);
+    setJob({
+      company: '',
+      position: '',
+      description: '',
+      startDate: '',
+      endDate: '',
+    });
+    setToggle(false);
+  }
+  function onSave() {
+    handleSaveJob(job, active);
+    setToggle(false);
+    setJob({
+      company: '',
+      position: '',
+      description: '',
+      startDate: '',
+      endDate: '',
+    });
   }
 
   return (
@@ -33,11 +40,11 @@ const FormJob = ({ addJob }) => {
         <input type="text" name="startDate" placeholder="start date" value={job.startDate} onChange={handleInput} />
         <input type="text" name="endDate" placeholder="end date" value={job.endDate} onChange={handleInput} />
       </div>
-      {!false ? (
+      {!active ? (
         <button type="submit">add</button>
       ) : (
         <>
-          <button type="button" onClick={null}>
+          <button type="button" onClick={onSave}>
             save
           </button>
           <button type="button" onClick={null}>
