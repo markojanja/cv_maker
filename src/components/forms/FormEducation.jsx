@@ -8,7 +8,13 @@ const FormEducation = ({ onChange, onSubmit, handleCancel, handleDelete, educati
         <input type="text" name="startDate" placeholder="start date" value={education.startDate} onChange={onChange} />
         <input type="text" name="endDate" placeholder="end date" value={education.endDate} onChange={onChange} />
       </div>
-      {!activeEducation ? <button type="submit">add</button> : <ButtonGroup handleSave={handleSave} handleCancel={handleCancel} handleDelete={handleDelete} />}
+      {!activeEducation ? (
+        <button className="btn" type="submit">
+          add
+        </button>
+      ) : (
+        <ButtonGroup handleSave={handleSave} handleCancel={handleCancel} handleDelete={handleDelete} />
+      )}
     </form>
   );
 };

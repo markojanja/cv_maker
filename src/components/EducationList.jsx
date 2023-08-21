@@ -32,7 +32,7 @@ const EducationList = ({
       <div className="sidebar-header">
         <h2>Education</h2>
         <button onClick={handleToggle}>
-          <i classnam="fa-solid fa-plus"></i>
+          <i className="fa-solid fa-plus"></i>
         </button>
       </div>
       {toggleForm && (

@@ -1,10 +1,10 @@
 const ButtonGroup = ({ handleSave, handleCancel, handleDelete }) => {
   return (
     <div className="button-group">
-      <button type="button" onClick={handleSave}>
+      <button className="btn" type="button" onClick={handleSave}>
         Save
       </button>
-      <button type="button" onClick={handleCancel}>
+      <button className="btn" type="button" onClick={handleCancel}>
         Cancel
       </button>
       <button type="button" onClick={handleDelete}>

@@ -132,7 +132,7 @@ function App() {
         <section className="cv-section">
           <div className="resume-container">
             <div className="r-header">
-              <h2>{personalInfo.fullname}</h2>
+              <h1>{personalInfo.fullname}</h1>
               <div className="r-info-group">
                 <div className="r-info">
                   <i className="fa-solid fa-envelope"></i>
@@ -178,6 +178,24 @@ function App() {
                   </div>
                 ))}
               </div>
+            </div>
+            <div className="skill-section">
+              <h2 className="title">Skills</h2>
+
+              <ul className="skill-group">
+                <li>English</li>
+                <li>Driver licence</li>
+                <li>MS Office</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>Java</li>
+                <li>English</li>
+                <li>Driver licence</li>
+                <li>MS Office</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>Java</li>
+              </ul>
             </div>
           </div>
         </section>
