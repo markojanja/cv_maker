@@ -6,6 +6,11 @@ import FormInfo from './components/forms/FormInfo';
 import FormProfile from './components/forms/FormProfile';
 import EducationList from './components/EducationList';
 import JobList from './components/JobList';
+import InfoSection from './components/sections/InfoSection';
+import ProfileSection from './components/sections/ProfileSection';
+import EduSection from './components/sections/EduSection';
+import JobSection from './components/sections/JobSection';
+import SkillsSection from './components/sections/SkillsSection';
 import './App.css';
 
 function App() {
@@ -131,72 +136,11 @@ function App() {
         </aside>
         <section className="cv-section">
           <div className="resume-container">
-            <div className="r-header">
-              <h1>{personalInfo.fullname}</h1>
-              <div className="r-info-group">
-                <div className="r-info">
-                  <i className="fa-solid fa-envelope"></i>
-                  <p>{personalInfo.email}</p>
-                </div>
-                <div className="r-info">
-                  <i className="fa-solid fa-phone"></i>
-                  <p>{personalInfo.phone}</p>
-                </div>
-                <div className="r-info">
-                  <i className="fa-solid fa-location-dot"></i>
-                  <p>{personalInfo.address}</p>
-                </div>
-              </div>
-            </div>
-            <div className="profile-section">
-              <h2 className="title">Profile</h2>
-              <p>{profile}</p>
-            </div>
-            <div className="experience-section">
-              <h2 className="title">Experience</h2>
-              {jobList.map((item) => (
-                <div key={item.id} className="exp-card">
-                  <h3>{item.company}</h3>
-                  <p className="muted">
-                    {item.startDate} - {item.endDate}
-                  </p>
-                  <p>{item.position}</p>
-                  <p>{item.description}</p>
-                </div>
-              ))}
-            </div>
-            <div className="education-section">
-              <h2 className="title">Education</h2>
-              <div className="edu-group">
-                {educationList.map((item) => (
-                  <div key={item.id} className="edu-card">
-                    <h3>{item.school}</h3>
-                    <p className="muted">
-                      {item.startDate} - {item.endDate}
-                    </p>
-                    <p>{item.degree}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="skill-section">
-              <h2 className="title">Skills</h2>
-
-              <ul className="skill-group">
-                <li>English</li>
-                <li>Driver licence</li>
-                <li>MS Office</li>
-                <li>JavaScript</li>
-                <li>Python</li>
-                <li>Java</li>
-                <li>English</li>
-                <li>Driver licence</li>
-                <li>MS Office</li>
-                <li>JavaScript</li>
-                <li>Python</li>
-                <li>Java</li>
-              </ul>
-            </div>
+            <InfoSection personalInfo={personalInfo} />
+            <ProfileSection profile={profile} />
+            <JobSection title="Experience" list={jobList} />
+            <EduSection title="Education" list={educationList} />
+            <SkillsSection />
           </div>
         </section>
       </Main>

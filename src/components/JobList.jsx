@@ -28,7 +28,7 @@ const JobList = ({ addJob, jobList, handleSaveJob, handleDeleteJob }) => {
       <div className="sidebar-header">
         <h2>Experience</h2>
         <button onClick={() => handleToggle()}>
-          <i class="fa-solid fa-plus"></i>
+          <i className="fa-solid fa-plus"></i>
         </button>
       </div>
       {toggle && (
