@@ -62,7 +62,13 @@ const FormJob = ({ job, active, setJob, addJob, setToggle, handleSaveJob, handle
         <input type="text" name="startDate" placeholder="start date" value={job.startDate} onChange={handleInput} />
         <input type="text" name="endDate" placeholder="end date" value={job.endDate} onChange={handleInput} />
       </div>
-      {!active ? <button type="submit">add</button> : <ButtonGroup handleSave={onSave} handleCancel={handleCancel} handleDelete={onDelete} />}
+      {!active ? (
+        <button className="btn" type="submit">
+          add
+        </button>
+      ) : (
+        <ButtonGroup handleSave={onSave} handleCancel={handleCancel} handleDelete={onDelete} />
+      )}
     </form>
   );
 };
