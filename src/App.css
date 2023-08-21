@@ -13,6 +13,7 @@
   justify-content: center;
   gap: 10px;
 }
+
 .button-group button,
 .sidebar button {
   display: inline-block;
@@ -20,6 +21,7 @@
   outline: none;
   cursor: pointer;
   background-color: #fff;
+  font-size: 1.2rem;
 }
 
 .info-form,

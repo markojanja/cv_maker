@@ -2,13 +2,13 @@ const ButtonGroup = ({ handleSave, handleCancel, handleDelete }) => {
   return (
     <div className="button-group">
       <button type="button" onClick={handleSave}>
-        save
+        Save
       </button>
       <button type="button" onClick={handleCancel}>
-        cancel
+        Cancel
       </button>
-      <button type="button" onClick={handleSave}>
-        delete
+      <button type="button" onClick={handleDelete}>
+        <i class="fa-solid fa-trash"></i>
       </button>
     </div>
   );

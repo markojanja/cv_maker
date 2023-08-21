@@ -61,6 +61,7 @@ function App() {
     setEducation({ ...defaultEducation });
     setToggleForm(!toggleForm);
   }
+
   function handleDelete() {
     const updatedEduList = educationList.filter((item) => {
       return item.id !== activeEducation.id;
@@ -75,8 +76,8 @@ function App() {
     setEducation({ ...defaultEducation });
     setToggleForm(!toggleForm);
   }
-  //job
 
+  //job
   function addJob(job) {
     setJobList([...jobList, job]);
   }
@@ -113,6 +114,7 @@ function App() {
         <aside className="sidebar">
           <FormInfo setPersonalInfo={setPersonalInfo} personalInfo={personalInfo} />
           <FormProfile profile={profile} setProfile={setProfile} />
+          <JobList addJob={addJob} jobList={jobList} handleSaveJob={handleSaveJob} handleDeleteJob={handleDeleteJob} />
           <EducationList
             educationList={educationList}
             education={education}
@@ -126,36 +128,56 @@ function App() {
             handleDelete={handleDelete}
             handleCancel={handleCancel}
           />
-
-          <JobList addJob={addJob} jobList={jobList} handleSaveJob={handleSaveJob} handleDeleteJob={handleDeleteJob} />
         </aside>
         <section className="cv-section">
           <div className="resume-container">
             <div className="r-header">
               <h2>{personalInfo.fullname}</h2>
-              <p>{personalInfo.email}</p>
-              <p>{personalInfo.address}</p>
-              <p>{personalInfo.phone}</p>
+              <div className="r-info-group">
+                <div className="r-info">
+                  <i className="fa-solid fa-envelope"></i>
+                  <p>{personalInfo.email}</p>
+                </div>
+                <div className="r-info">
+                  <i className="fa-solid fa-phone"></i>
+                  <p>{personalInfo.phone}</p>
+                </div>
+                <div className="r-info">
+                  <i className="fa-solid fa-location-dot"></i>
+                  <p>{personalInfo.address}</p>
+                </div>
+              </div>
             </div>
             <div className="profile-section">
-              <h3>Profile</h3>
+              <h2 className="title">Profile</h2>
               <p>{profile}</p>
             </div>
-            <div className="education-section">
-              <h3>Education</h3>
-              {educationList.map((item) => (
-                <p key={item.id}>{item.school}</p>
-              ))}
-            </div>
             <div className="experience-section">
-              <h3>Experience</h3>
+              <h2 className="title">Experience</h2>
               {jobList.map((item) => (
-                <div key={item.id}>
-                  <p>{item.company}</p>
+                <div key={item.id} className="exp-card">
+                  <h3>{item.company}</h3>
+                  <p className="muted">
+                    {item.startDate} - {item.endDate}
+                  </p>
                   <p>{item.position}</p>
                   <p>{item.description}</p>
                 </div>
               ))}
+            </div>
+            <div className="education-section">
+              <h2 className="title">Education</h2>
+              <div className="edu-group">
+                {educationList.map((item) => (
+                  <div key={item.id} className="edu-card">
+                    <h3>{item.school}</h3>
+                    <p className="muted">
+                      {item.startDate} - {item.endDate}
+                    </p>
+                    <p>{item.degree}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
