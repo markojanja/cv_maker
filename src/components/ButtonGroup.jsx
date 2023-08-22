@@ -8,7 +8,7 @@ const ButtonGroup = ({ handleSave, handleCancel, handleDelete }) => {
         Cancel
       </button>
       <button type="button" onClick={handleDelete}>
-        <i class="fa-solid fa-trash"></i>
+        <i className="fa-solid fa-trash"></i>
       </button>
     </div>
   );

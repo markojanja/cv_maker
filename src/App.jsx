@@ -12,6 +12,7 @@ import ProfileSection from './components/sections/ProfileSection';
 import EduSection from './components/sections/EduSection';
 import JobSection from './components/sections/JobSection';
 import SkillsSection from './components/sections/SkillsSection';
+import SkillsList from './components/SkillsList';
 import './App.css';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
   const [educationList, setEducationList] = useState([]);
   const [activeEducation, setActiveEducation] = useState(null);
   const [jobList, setJobList] = useState([]);
+  const [skills, setSkills] = useState([]);
 
   const componentPDF = useRef();
 
@@ -95,6 +97,7 @@ function App() {
   function addJob(job) {
     setJobList([...jobList, job]);
   }
+
   function handleSaveJob(job, active) {
     const updated = jobList.map((existingJob) => {
       if (existingJob.id === active.id) {
@@ -115,10 +118,32 @@ function App() {
 
   function handleDeleteJob(active) {
     const updated = jobList.filter((item) => {
-      console.log(item, active);
       return item.id !== active.id;
     });
     setJobList(updated);
+  }
+  //skills
+
+  function addSkill(skill) {
+    setSkills([...skills, skill]);
+  }
+
+  function handleSaveSkill(skill, active) {
+    const updated = skills.map((current) => {
+      if (current.id === active.id) {
+        console.log('skill found');
+        return { ...current, name: skill.name };
+      }
+      return current;
+    });
+    setSkills(updated);
+  }
+
+  function handleDeleteSkill(active) {
+    const updated = skills.filter((item) => {
+      return item.id !== active.id;
+    });
+    setSkills(updated);
   }
 
   return (
@@ -142,6 +167,7 @@ function App() {
             handleDelete={handleDelete}
             handleCancel={handleCancel}
           />
+          <SkillsList skillList={skills} addSkill={addSkill} handleSaveSkill={handleSaveSkill} handleDeleteSkill={handleDeleteSkill} />
         </aside>
         <section className="cv-section">
           <button onClick={generatePdf}>PDF</button>
@@ -152,7 +178,7 @@ function App() {
               <JobSection title="Experience" list={jobList} />
               {jobList.length >= 2 && <div className="pagebreak"></div>}
               <EduSection title="Education" list={educationList} />
-              <SkillsSection />
+              <SkillsSection skillList={skills} />
             </div>
           </div>
         </section>
