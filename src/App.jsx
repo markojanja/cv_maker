@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { useReactToPrint } from 'react-to-print';
 import Footer from './components/footer/Footer';
 import Main from './components/main/Main';
 import Navbar from './components/navbar/Navbar';
@@ -33,6 +34,14 @@ function App() {
   const [educationList, setEducationList] = useState([]);
   const [activeEducation, setActiveEducation] = useState(null);
   const [jobList, setJobList] = useState([]);
+
+  const componentPDF = useRef();
+
+  const generatePdf = useReactToPrint({
+    content: () => componentPDF.current,
+    documentTitle: 'userPdf',
+    onAfterPrint: () => console.log('print'),
+  });
 
   function addEducation(e) {
     e.preventDefault();
@@ -135,12 +144,15 @@ function App() {
           />
         </aside>
         <section className="cv-section">
-          <div className="resume-container">
-            <InfoSection personalInfo={personalInfo} />
-            <ProfileSection profile={profile} />
-            <JobSection title="Experience" list={jobList} />
-            <EduSection title="Education" list={educationList} />
-            <SkillsSection />
+          <button onClick={generatePdf}>PDF</button>
+          <div className="wrapper">
+            <div ref={componentPDF} className="resume-container">
+              <InfoSection personalInfo={personalInfo} />
+              <ProfileSection profile={profile} />
+              <JobSection title="Experience" list={jobList} />
+              <EduSection title="Education" list={educationList} />
+              <SkillsSection />
+            </div>
           </div>
         </section>
       </Main>

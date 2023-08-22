@@ -48,7 +48,12 @@ p {
   flex: 1;
   align-items: center;
   justify-content: center;
-  padding: 10px 5%;
+  padding: 5%;
+}
+.wrapper {
+  -webkit-box-shadow: 1px 2px 40px -5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 1px 2px 40px -5px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 2px 40px -5px rgba(0, 0, 0, 0.5);
 }
 .resume-container {
   display: flex;
@@ -58,9 +63,6 @@ p {
   min-height: 29.7cm;
   min-width: 21cm;
   font-weight: 500;
-  -webkit-box-shadow: 1px 2px 40px -5px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 1px 2px 40px -5px rgba(0, 0, 0, 0.5);
-  box-shadow: 1px 2px 40px -5px rgba(0, 0, 0, 0.5);
 }
 
 .profile-section,
