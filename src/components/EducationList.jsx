@@ -29,7 +29,7 @@ const EducationList = ({
 
   return (
     <div className="sidebar-container">
-      <div className="sidebar-header">
+      <div className="sidebar-header ">
         <h2>Education</h2>
         <button onClick={handleToggle}>
           <i className="fa-solid fa-plus"></i>
