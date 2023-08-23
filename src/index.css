@@ -49,7 +49,17 @@ textarea:focus {
 }
 @media print {
   .pagebreak {
-    margin-top: 20px;
-    page-break-before: always;
+    page-break-before: auto;
   } /* page-break-after works, as well */
+  .content-card {
+    page-break-inside: avoid;
+  }
+  .content-container:nth-last-child() {
+    display: block;
+    margin-top: 20px;
+  }
+  .resume-container {
+    width: 21cm;
+    height: 29.7cm;
+  }
 }

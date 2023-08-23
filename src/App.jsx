@@ -184,7 +184,7 @@ function App() {
               <InfoSection personalInfo={personalInfo} />
               <ProfileSection profile={profile} />
               <JobSection title="Experience" list={jobList} />
-              {jobList.length >= 2 && <div className="pagebreak"></div>}
+              <div className="pagebreak"></div>
               <EduSection title="Education" list={educationList} />
               <SkillsSection skillList={skills} />
             </div>
