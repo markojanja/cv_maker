@@ -54,11 +54,8 @@ textarea:focus {
   .content-card {
     page-break-inside: avoid;
   }
-  .content-container:nth-last-child() {
-    display: block;
-    margin-top: 20px;
-  }
   .resume-container {
+    display: block;
     width: 21cm;
     height: 29.7cm;
   }
