@@ -4,11 +4,13 @@ const JobSection = ({ title, list }) => {
       <h2 className="title">{title}</h2>
       {list.map((item) => (
         <div key={item.id} className="exp-card">
-          <h3>{item.company}</h3>
-          <p className="muted">
-            {item.startDate} - {item.endDate}
+          <h3>{item.position}</h3>
+          <p style={{ fontWeight: 'bolder' }}>
+            {item.company}{' '}
+            <span className="muted" style={{ fontSize: '14px' }}>
+              {item.startDate} - {item.endDate}
+            </span>
           </p>
-          <p>{item.position}</p>
           <p>{item.description}</p>
         </div>
       ))}

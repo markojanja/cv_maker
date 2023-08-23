@@ -167,10 +167,18 @@ function App() {
             handleDelete={handleDelete}
             handleCancel={handleCancel}
           />
-          <SkillsList skillList={skills} addSkill={addSkill} handleSaveSkill={handleSaveSkill} handleDeleteSkill={handleDeleteSkill} />
+          <SkillsList
+            skillList={skills}
+            addSkill={addSkill}
+            handleSaveSkill={handleSaveSkill}
+            handleDeleteSkill={handleDeleteSkill}
+          />
         </aside>
         <section className="cv-section">
-          <button onClick={generatePdf}>PDF</button>
+          <button className="download" onClick={generatePdf}>
+            <span>Download</span>
+            <i className="fa-solid fa-file-pdf"></i>
+          </button>
           <div className="wrapper">
             <div ref={componentPDF} className="resume-container">
               <InfoSection personalInfo={personalInfo} />
