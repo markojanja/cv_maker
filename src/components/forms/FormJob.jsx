@@ -54,13 +54,26 @@ const FormJob = ({ job, active, setJob, addJob, setToggle, handleSaveJob, handle
   }
 
   return (
-    <form onSubmit={handleSubmit} className="job-form">
-      <input type="text" name="company" placeholder="company" value={job.company} onChange={handleInput} />
-      <input type="text" name="position" placeholder="position" value={job.position} onChange={handleInput} />
-      <textarea name="description" placeholder="Job description" value={job.description} rows={5} onChange={handleInput} />
+    <form onSubmit={handleSubmit} className="form">
+      <input type="text" name="company" placeholder="company" value={job.company} onChange={handleInput} required />
+      <input type="text" name="position" placeholder="position" value={job.position} onChange={handleInput} required />
+      <textarea
+        name="description"
+        placeholder="Job description"
+        value={job.description}
+        rows={5}
+        onChange={handleInput}
+      />
       <div className="input-group">
-        <input type="text" name="startDate" placeholder="start date" value={job.startDate} onChange={handleInput} />
-        <input type="text" name="endDate" placeholder="end date" value={job.endDate} onChange={handleInput} />
+        <input
+          type="text"
+          name="startDate"
+          placeholder="start date"
+          value={job.startDate}
+          onChange={handleInput}
+          required
+        />
+        <input type="text" name="endDate" placeholder="end date" value={job.endDate} onChange={handleInput} required />
       </div>
       {!active ? (
         <button className="btn" type="submit">

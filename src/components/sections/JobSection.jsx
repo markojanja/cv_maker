@@ -1,9 +1,9 @@
 const JobSection = ({ title, list }) => {
   return (
-    <div className="experience-section">
+    <div className="content-container">
       <h2 className="title">{title}</h2>
       {list.map((item) => (
-        <div key={item.id} className="exp-card">
+        <div key={item.id} className="content-card">
           <h3>{item.position}</h3>
           <p style={{ fontWeight: 'bolder' }}>
             {item.company}{' '}

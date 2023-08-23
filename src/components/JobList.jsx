@@ -27,7 +27,7 @@ const JobList = ({ addJob, jobList, handleSaveJob, handleDeleteJob }) => {
     <div className="sidebar-container">
       <div className="sidebar-header">
         <h2>Experience</h2>
-        <button onClick={() => handleToggle()}>
+        <button className="sidebar-btn" onClick={() => handleToggle()}>
           <i className="fa-solid fa-plus"></i>
         </button>
       </div>
@@ -47,7 +47,7 @@ const JobList = ({ addJob, jobList, handleSaveJob, handleDeleteJob }) => {
           {jobList.map((item) => (
             <div className="sidebar-card" key={item.id}>
               <p>{item.company}</p>
-              <button onClick={() => EditJob(item)}>
+              <button className="sidebar-btn" onClick={() => EditJob(item)}>
                 <i className="fa-solid fa-pen-to-square"></i>
               </button>
             </div>

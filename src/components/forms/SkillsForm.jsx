@@ -31,8 +31,8 @@ const SkillsForm = ({ skill, active, setSkill, setToggle, addSkill, handleSaveSk
   }
 
   return (
-    <form onSubmit={handleSubmit} className="job-form">
-      <input type="text" name="skill" placeholder="skill" value={skill.name} onChange={handleInput} />
+    <form onSubmit={handleSubmit} className="form">
+      <input type="text" name="skill" placeholder="skill" value={skill.name} onChange={handleInput} required />
 
       {!active ? (
         <button className="btn" type="submit">

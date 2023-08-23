@@ -2,7 +2,7 @@ import React from 'react';
 
 const SkillsSection = ({ skillList }) => {
   return (
-    <div className="skill-section">
+    <div className="content-container">
       <h2 className="title">Skills</h2>
       <ul className="skill-group">
         {skillList.map((item) => (

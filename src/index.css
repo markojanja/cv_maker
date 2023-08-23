@@ -7,6 +7,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  --main-color: #fff;
+  --accent-color: rgb(72, 88, 236);
+  --text-muted: rgb(49, 49, 49);
 }
 
 * {
@@ -31,124 +34,14 @@ p {
   line-height: 1.5;
   font-weight: 400;
 }
+a {
+  text-decoration: none;
+  color: #121212;
+  font-weight: 600;
+}
 @media print {
   .pagebreak {
     margin-top: 20px;
     page-break-before: always;
   } /* page-break-after works, as well */
-}
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 10px;
-  min-width: 35%;
-  max-width: 40%;
-  gap: 1.2rem;
-}
-
-.cv-section {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  padding: 5%;
-}
-.wrapper {
-  -webkit-box-shadow: 1px 2px 40px -5px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 1px 2px 40px -5px rgba(0, 0, 0, 0.5);
-  box-shadow: 1px 2px 40px -5px rgba(0, 0, 0, 0.5);
-}
-.resume-container {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  background-color: #fff;
-  min-height: 29.7cm;
-  min-width: 21cm;
-  font-weight: 500;
-}
-
-.profile-section,
-.education-section,
-.experience-section,
-.skill-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 20px 40px;
-  text-align: left;
-  word-break: normal;
-  gap: 10px;
-}
-.skill-group {
-  display: flex;
-  list-style: none;
-  gap: 10px;
-  padding: 20px;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.skill-group li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 5px 10px;
-  color: #fff;
-  background-color: rgb(72, 88, 236);
-  border-radius: 5px;
-}
-
-.r-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background-color: rgb(72, 88, 236);
-  color: #fff;
-  gap: 10px;
-  min-height: 200px;
-  margin: 0;
-}
-.r-header h2 {
-  font-size: 2.2rem;
-}
-.r-info-group {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-.r-info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-}
-.edu-card,
-.exp-card {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  gap: 5px;
-  width: 100%;
-}
-
-.edu-group {
-  width: 100%;
-}
-.muted {
-  color: rgb(49, 49, 49);
-}
-.title {
-  flex: 1;
-  width: 100%;
-  border-bottom: 2px solid rgb(49, 49, 49);
 }

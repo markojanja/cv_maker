@@ -31,7 +31,7 @@ const EducationList = ({
     <div className="sidebar-container">
       <div className="sidebar-header ">
         <h2>Education</h2>
-        <button onClick={handleToggle}>
+        <button className="sidebar-btn" onClick={handleToggle}>
           <i className="fa-solid fa-plus"></i>
         </button>
       </div>
@@ -51,7 +51,7 @@ const EducationList = ({
           {educationList.map((item, index) => (
             <div className="sidebar-card" key={index}>
               <p>{item.school}</p>
-              <button onClick={() => toggleAndEdit(item)}>
+              <button className="sidebar-btn" onClick={() => toggleAndEdit(item)}>
                 <i className="fa-solid fa-pen-to-square"></i>
               </button>
             </div>

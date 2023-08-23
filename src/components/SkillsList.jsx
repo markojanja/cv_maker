@@ -19,7 +19,7 @@ const SkillsList = ({ skillList, addSkill, handleSaveSkill, handleDeleteSkill })
     <div className="sidebar-container">
       <div className="sidebar-header">
         <h2>Skills</h2>
-        <button onClick={() => handleToggle()}>
+        <button className="sidebar-btn" onClick={() => handleToggle()}>
           <i className="fa-solid fa-plus"></i>
         </button>
       </div>
@@ -39,7 +39,7 @@ const SkillsList = ({ skillList, addSkill, handleSaveSkill, handleDeleteSkill })
           {skillList.map((item) => (
             <div className="sidebar-card" key={item.id}>
               <p>{item.name}</p>
-              <button onClick={() => EditSkill(item)}>
+              <button className="sidebar-btn" onClick={() => EditSkill(item)}>
                 <i className="fa-solid fa-pen-to-square"></i>
               </button>
             </div>

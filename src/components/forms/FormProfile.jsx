@@ -8,8 +8,16 @@ const FormProfile = ({ profile, setProfile }) => {
       <div className="sidebar-header">
         <h2>Profile</h2>
       </div>
-      <form className="profile-form">
-        <textarea type="text" name="Your profile" onChange={handleProfileInput} placeholder="Profile" required value={profile} rows={5} />
+      <form className="form">
+        <textarea
+          type="text"
+          name="Your profile"
+          onChange={handleProfileInput}
+          placeholder="Profile"
+          required
+          value={profile}
+          rows={5}
+        />
       </form>
     </div>
   );
