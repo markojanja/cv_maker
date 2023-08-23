@@ -39,6 +39,13 @@ a {
   color: #121212;
   font-weight: 600;
 }
+input:active,
+input:focus,
+textarea:active,
+textarea:focus {
+  border-color: var(--accent-color) !important;
+  outline-color: var(--accent-color);
+}
 @media print {
   .pagebreak {
     margin-top: 20px;
