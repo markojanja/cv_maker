@@ -27,6 +27,9 @@ function App() {
   const [educationList, setEducationList] = useState([]);
   const [jobList, setJobList] = useState([]);
   const [skills, setSkills] = useState([]);
+  const [isTabActive, setIsTabActive] = useState(true);
+  const [color, setColor] = useState('var(--accent-color)');
+  const [fontColor, setFontColor] = useState('#fff');
 
   const componentPDF = useRef();
 
@@ -122,21 +125,53 @@ function App() {
       <Navbar />
       <Main>
         <aside className="sidebar">
-          <FormInfo setPersonalInfo={setPersonalInfo} personalInfo={personalInfo} />
-          <FormProfile profile={profile} setProfile={setProfile} />
-          <JobList addJob={addJob} jobList={jobList} handleSaveJob={handleSaveJob} handleDeleteJob={handleDeleteJob} />
-          <EducationList
-            educationList={educationList}
-            addEducation={addEducation}
-            handleSaveEducation={handleSaveEducation}
-            handleDeleteEducation={handleDeleteEducation}
-          />
-          <SkillsList
-            skillList={skills}
-            addSkill={addSkill}
-            handleSaveSkill={handleSaveSkill}
-            handleDeleteSkill={handleDeleteSkill}
-          />
+          <>
+            {' '}
+            <button className="btn" onClick={() => setIsTabActive(!isTabActive)}>
+              {isTabActive ? 'customize' : 'edit portfolio'}
+            </button>
+          </>
+          {isTabActive && (
+            <>
+              <FormInfo setPersonalInfo={setPersonalInfo} personalInfo={personalInfo} />
+              <FormProfile profile={profile} setProfile={setProfile} />
+              <JobList
+                addJob={addJob}
+                jobList={jobList}
+                handleSaveJob={handleSaveJob}
+                handleDeleteJob={handleDeleteJob}
+              />
+              <EducationList
+                educationList={educationList}
+                addEducation={addEducation}
+                handleSaveEducation={handleSaveEducation}
+                handleDeleteEducation={handleDeleteEducation}
+              />
+              <SkillsList
+                skillList={skills}
+                addSkill={addSkill}
+                handleSaveSkill={handleSaveSkill}
+                handleDeleteSkill={handleDeleteSkill}
+              />
+            </>
+          )}
+          {!isTabActive && (
+            <div className="sidebar-container">
+              <div>
+                <label htmlFor="color-picker">set resume color</label>
+                <input type="color" id="color-picker" value={color} onChange={(e) => setColor(e.target.value)} />
+              </div>
+              <div>
+                <label htmlFor="color-picker">set font color</label>
+                <input
+                  type="color"
+                  id="color-picker"
+                  value={fontColor}
+                  onChange={(e) => setFontColor(e.target.value)}
+                />
+              </div>
+            </div>
+          )}
         </aside>
         <section className="cv-section">
           <button className="download" onClick={generatePdf}>
@@ -145,12 +180,12 @@ function App() {
           </button>
           <div className="wrapper">
             <div ref={componentPDF} className="resume-container">
-              <InfoSection personalInfo={personalInfo} />
+              <InfoSection personalInfo={personalInfo} color={color} fontColor={fontColor} />
               <ProfileSection profile={profile} />
               <JobSection title="Experience" list={jobList} />
               <div className="pagebreak"></div>
               <EduSection title="Education" list={educationList} />
-              <SkillsSection skillList={skills} />
+              <SkillsSection skillList={skills} color={color} />
             </div>
           </div>
         </section>

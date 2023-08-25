@@ -47,10 +47,29 @@ textarea:focus {
   border-color: var(--accent-color) !important;
   outline-color: var(--accent-color);
 }
+input[type='color'] {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: none;
+}
+
+input[type='color']::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+}
+
+input[type='color']::-webkit-color-swatch-wrapper {
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+}
 @media print {
   .pagebreak {
     page-break-before: auto;
-  } /* page-break-after works, as well */
+  }
   .content-card {
     page-break-inside: avoid;
   }
