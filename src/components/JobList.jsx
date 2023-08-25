@@ -13,7 +13,7 @@ const JobList = ({ addJob, jobList, handleSaveJob, handleDeleteJob }) => {
   const [toggle, setToggle] = useState(true);
   const [activeJob, setActiveJob] = useState(null);
 
-  function EditJob(obj) {
+  function editJob(obj) {
     setActiveJob(obj);
     setJob(obj);
     setToggle(!toggle);
@@ -47,7 +47,7 @@ const JobList = ({ addJob, jobList, handleSaveJob, handleDeleteJob }) => {
           {jobList.map((item) => (
             <div className="sidebar-card" key={item.id}>
               <p>{item.company}</p>
-              <button className="sidebar-btn" onClick={() => EditJob(item)}>
+              <button className="sidebar-btn" onClick={() => editJob(item)}>
                 <i className="fa-solid fa-pen-to-square"></i>
               </button>
             </div>

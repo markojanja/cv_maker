@@ -16,24 +16,15 @@ import SkillsList from './components/SkillsList';
 import './App.css';
 
 function App() {
-  const defaultEducation = {
-    school: '',
-    degree: '',
-    startDate: '',
-    endDate: '',
-  };
   const defaultInfo = {
     fullname: '',
     email: '',
     address: '',
     phone: '',
   };
-  const [toggleForm, setToggleForm] = useState(true);
   const [personalInfo, setPersonalInfo] = useState({ ...defaultInfo });
   const [profile, setProfile] = useState('');
-  const [education, setEducation] = useState({ ...defaultEducation });
   const [educationList, setEducationList] = useState([]);
-  const [activeEducation, setActiveEducation] = useState(null);
   const [jobList, setJobList] = useState([]);
   const [skills, setSkills] = useState([]);
 
@@ -45,24 +36,16 @@ function App() {
     onAfterPrint: () => console.log('print'),
   });
 
-  function addEducation(e) {
-    e.preventDefault();
+  function addEducation(education) {
     setEducationList([...educationList, education]);
-    setEducation({ ...defaultEducation });
-    setToggleForm(!toggleForm);
   }
 
-  function setCurrentEducation(obj) {
-    setEducation({ ...obj });
-    setActiveEducation({ ...obj });
-  }
-
-  function handleSave() {
-    const updatedEduList = educationList.map((existingTask) => {
-      if (existingTask.id === activeEducation.id) {
+  function handleSaveEducation(education, active) {
+    const updatedEduList = educationList.map((item) => {
+      if (item.id === active.id) {
         console.log('task found');
         return {
-          ...existingTask,
+          ...item,
           school: education.school,
           degree: education.degree,
           startDate: education.startDate,
@@ -73,36 +56,24 @@ function App() {
     });
 
     setEducationList(updatedEduList);
-    setActiveEducation(null);
-    setEducation({ ...defaultEducation });
-    setToggleForm(!toggleForm);
   }
 
-  function handleDelete() {
+  function handleDeleteEducation(active) {
     const updatedEduList = educationList.filter((item) => {
-      return item.id !== activeEducation.id;
+      return item.id !== active.id;
     });
     setEducationList(updatedEduList);
-    setActiveEducation(null);
-    setEducation({ ...defaultEducation });
-    setToggleForm(!toggleForm);
   }
-  function handleCancel() {
-    setActiveEducation(null);
-    setEducation({ ...defaultEducation });
-    setToggleForm(!toggleForm);
-  }
-
   //job
   function addJob(job) {
     setJobList([...jobList, job]);
   }
 
   function handleSaveJob(job, active) {
-    const updated = jobList.map((existingJob) => {
-      if (existingJob.id === active.id) {
+    const updated = jobList.map((item) => {
+      if (item.id === active.id) {
         return {
-          ...existingJob,
+          ...item,
           company: job.company,
           position: job.position,
           description: job.description,
@@ -110,7 +81,7 @@ function App() {
           endDate: job.endDate,
         };
       }
-      return existingJob;
+      return item;
     });
 
     setJobList(updated);
@@ -156,16 +127,9 @@ function App() {
           <JobList addJob={addJob} jobList={jobList} handleSaveJob={handleSaveJob} handleDeleteJob={handleDeleteJob} />
           <EducationList
             educationList={educationList}
-            education={education}
-            setEducation={setEducation}
-            activeEducation={activeEducation}
-            toggleForm={toggleForm}
-            onSubmit={addEducation}
-            setToggleForm={setToggleForm}
-            setCurrentEducation={setCurrentEducation}
-            handleSave={handleSave}
-            handleDelete={handleDelete}
-            handleCancel={handleCancel}
+            addEducation={addEducation}
+            handleSaveEducation={handleSaveEducation}
+            handleDeleteEducation={handleDeleteEducation}
           />
           <SkillsList
             skillList={skills}
