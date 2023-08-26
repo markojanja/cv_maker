@@ -1,3 +1,4 @@
+import './App.css';
 import { useState, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import Footer from './components/footer/Footer';
@@ -13,7 +14,7 @@ import EduSection from './components/sections/EduSection';
 import JobSection from './components/sections/JobSection';
 import SkillsSection from './components/sections/SkillsSection';
 import SkillsList from './components/SkillsList';
-import './App.css';
+import CustomizeSection from './components/CustomizeSection';
 
 function App() {
   const defaultInfo = {
@@ -29,7 +30,7 @@ function App() {
   const [skills, setSkills] = useState([]);
   const [isTabActive, setIsTabActive] = useState(true);
   const [color, setColor] = useState('var(--accent-color)');
-  const [fontColor, setFontColor] = useState('#fff');
+  const [fontColor, setFontColor] = useState('rbg(255,255,255)');
 
   const componentPDF = useRef();
 
@@ -156,21 +157,7 @@ function App() {
             </>
           )}
           {!isTabActive && (
-            <div className="sidebar-container">
-              <div>
-                <label htmlFor="color-picker">set resume color</label>
-                <input type="color" id="color-picker" value={color} onChange={(e) => setColor(e.target.value)} />
-              </div>
-              <div>
-                <label htmlFor="color-picker">set font color</label>
-                <input
-                  type="color"
-                  id="color-picker"
-                  value={fontColor}
-                  onChange={(e) => setFontColor(e.target.value)}
-                />
-              </div>
-            </div>
+            <CustomizeSection color={color} setColor={setColor} fontColor={fontColor} setFontColor={setFontColor} />
           )}
         </aside>
         <section className="cv-section">

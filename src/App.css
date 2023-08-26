@@ -35,6 +35,7 @@
   background-color: var(--main-color);
   font-weight: 500;
   width: 100%;
+  min-height: 1200px;
 }
 
 .r-header {
@@ -230,4 +231,20 @@
 .sidebar p {
   flex: 1;
   text-align: left;
+}
+.customize-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--text-muted);
+  width: 90%;
+  gap: 20px;
+}
+.color-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
 }
