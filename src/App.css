@@ -37,6 +37,9 @@
   width: 100%;
   min-height: 1200px;
 }
+.r-header p {
+  color: var(--resume-font-clr);
+}
 
 .r-header {
   display: flex;

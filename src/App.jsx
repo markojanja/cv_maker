@@ -170,7 +170,7 @@ function App() {
             <div ref={componentPDF} className="resume-container">
               <InfoSection personalInfo={personalInfo} color={color} fontColor={fontColor} />
               <ProfileSection profile={profile} />
-              <JobSection title="Experience" list={jobList} />
+              <JobSection title="Experience" list={jobList} color={color} fontColor={fontColor} />
               <div className="pagebreak"></div>
               <EduSection title="Education" list={educationList} />
               <SkillsSection skillList={skills} color={color} fontColor={fontColor} />

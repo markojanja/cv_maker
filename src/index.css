@@ -31,6 +31,11 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+h2,
+h3,
+p {
+  color: var(--text-muted);
+}
 p {
   font-size: 1rem;
   line-height: 1.5;
@@ -73,7 +78,8 @@ input[type='color']::-webkit-color-swatch-wrapper {
   .pagebreak {
     page-break-before: auto;
   }
-  .content-card {
+  .content-card,
+  #edu {
     page-break-inside: avoid;
   }
   .resume-container {

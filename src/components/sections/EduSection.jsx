@@ -1,6 +1,6 @@
 const EduSection = ({ title, list }) => {
   return (
-    <div className="content-container">
+    <div className="content-container" id="edu">
       <h2 className="title">{title}</h2>
       {list.map((item) => (
         <div key={item.id} className="content-card">
