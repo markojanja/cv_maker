@@ -23,6 +23,10 @@ function App() {
     address: '',
     phone: '',
   };
+
+  const [color, setColor] = useState('#4858EC');
+  const [fontColor, setFontColor] = useState('#FFFFFF');
+
   const [personalInfo, setPersonalInfo] = useState({ ...defaultInfo });
   const [profile, setProfile] = useState('');
   const [educationList, setEducationList] = useState([]);
@@ -125,7 +129,6 @@ function App() {
       <Main>
         <aside className="sidebar">
           <>
-            {' '}
             <button className="btn" onClick={() => setIsTabActive(!isTabActive)}>
               {isTabActive ? 'customize' : 'edit portfolio'}
             </button>
@@ -154,7 +157,9 @@ function App() {
               />
             </>
           )}
-          {!isTabActive && <CustomizeSection />}
+          {!isTabActive && (
+            <CustomizeSection color={color} setColor={setColor} fontColor={fontColor} setFontColor={setFontColor} />
+          )}
         </aside>
         <section className="cv-section">
           <button className="download" onClick={generatePdf}>
@@ -163,12 +168,12 @@ function App() {
           </button>
           <div className="wrapper">
             <div ref={componentPDF} className="resume-container">
-              <InfoSection personalInfo={personalInfo} />
+              <InfoSection personalInfo={personalInfo} color={color} fontColor={fontColor} />
               <ProfileSection profile={profile} />
               <JobSection title="Experience" list={jobList} />
               <div className="pagebreak"></div>
               <EduSection title="Education" list={educationList} />
-              <SkillsSection skillList={skills} />
+              <SkillsSection skillList={skills} color={color} fontColor={fontColor} />
             </div>
           </div>
         </section>

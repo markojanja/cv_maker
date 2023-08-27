@@ -1,10 +1,4 @@
-import { useState } from 'react';
-
-const CustomizeSection = () => {
-  const [color, setColor] = useState('var(--accent-color)');
-
-  const [fontColor, setFontColor] = useState('rbg(255,255,255)');
-
+const CustomizeSection = ({ color, setColor, fontColor, setFontColor }) => {
   const handleChangeColor = (e) => {
     document.documentElement.style.setProperty('--resume-bg', e.target.value);
     setColor(e.target.value);

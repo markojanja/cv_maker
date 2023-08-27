@@ -1,8 +1,8 @@
 import React from 'react';
 
-const InfoSection = ({ personalInfo }) => {
+const InfoSection = ({ personalInfo, color, fontColor }) => {
   return (
-    <div className="r-header">
+    <div className="r-header" style={{ backgroundColor: color, color: fontColor }}>
       <h1>{personalInfo.fullname}</h1>
       <div className="r-info-group">
         <div className="r-info">
