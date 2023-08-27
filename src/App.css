@@ -44,8 +44,8 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background-color: var(--accent-color);
-  color: var(--main-color);
+  background-color: var(--resume-bg);
+  color: var(--resume-font-clr);
   gap: 10px;
   min-height: 180px;
   margin: 0;
@@ -62,6 +62,8 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
+  font-size: 1.1rem;
+  font-weight: 900 !important;
 }
 .content-container {
   display: flex;
@@ -124,7 +126,7 @@
   border: none;
   outline: none;
   color: var(--main-color);
-  background-color: var(--accent-color);
+  background-color: rgba(0, 0, 0, 1);
   font-size: 1rem;
   border: 1px solid var(--main-color);
   cursor: pointer;

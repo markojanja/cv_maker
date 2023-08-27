@@ -29,8 +29,6 @@ function App() {
   const [jobList, setJobList] = useState([]);
   const [skills, setSkills] = useState([]);
   const [isTabActive, setIsTabActive] = useState(true);
-  const [color, setColor] = useState('var(--accent-color)');
-  const [fontColor, setFontColor] = useState('rbg(255,255,255)');
 
   const componentPDF = useRef();
 
@@ -156,9 +154,7 @@ function App() {
               />
             </>
           )}
-          {!isTabActive && (
-            <CustomizeSection color={color} setColor={setColor} fontColor={fontColor} setFontColor={setFontColor} />
-          )}
+          {!isTabActive && <CustomizeSection />}
         </aside>
         <section className="cv-section">
           <button className="download" onClick={generatePdf}>
@@ -167,12 +163,12 @@ function App() {
           </button>
           <div className="wrapper">
             <div ref={componentPDF} className="resume-container">
-              <InfoSection personalInfo={personalInfo} color={color} fontColor={fontColor} />
+              <InfoSection personalInfo={personalInfo} />
               <ProfileSection profile={profile} />
               <JobSection title="Experience" list={jobList} />
               <div className="pagebreak"></div>
               <EduSection title="Education" list={educationList} />
-              <SkillsSection skillList={skills} color={color} />
+              <SkillsSection skillList={skills} />
             </div>
           </div>
         </section>

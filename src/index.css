@@ -9,6 +9,8 @@
   -webkit-text-size-adjust: 100%;
   --main-color: #fff;
   --accent-color: rgb(72, 88, 236);
+  --resume-bg: rgb(72, 88, 236);
+  --resume-font-clr: rgb(255, 255, 255);
   --text-muted: rgb(49, 49, 49);
 }
 
@@ -53,6 +55,7 @@ input[type='color'] {
   border-radius: 50%;
   overflow: hidden;
   border: none;
+  color: var(--accent-color);
 }
 
 input[type='color']::-webkit-color-swatch {
