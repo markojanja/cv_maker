@@ -39,7 +39,6 @@ function App() {
   const generatePdf = useReactToPrint({
     content: () => componentPDF.current,
     documentTitle: 'userPdf',
-    onAfterPrint: () => console.log('print'),
   });
 
   function addEducation(education) {
@@ -49,7 +48,6 @@ function App() {
   function handleSaveEducation(education, active) {
     const updatedEduList = educationList.map((item) => {
       if (item.id === active.id) {
-        console.log('task found');
         return {
           ...item,
           school: education.school,
@@ -108,7 +106,6 @@ function App() {
   function handleSaveSkill(skill, active) {
     const updated = skills.map((current) => {
       if (current.id === active.id) {
-        console.log('skill found');
         return { ...current, name: skill.name };
       }
       return current;
