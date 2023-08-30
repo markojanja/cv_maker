@@ -1,17 +1,9 @@
 import './Main.css';
 import { useState, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
-import FormInfo from '../forms/FormInfo';
-import FormProfile from '../forms/FormProfile';
-import EducationList from '../EducationList';
-import JobList from '../JobList';
-import InfoSection from '../sections/InfoSection';
-import ProfileSection from '../sections/ProfileSection';
-import EduSection from '../sections/EduSection';
-import JobSection from '../sections/JobSection';
-import SkillsSection from '../sections/SkillsSection';
-import SkillsList from '../SkillsList';
-import CustomizeSection from '../CustomizeSection';
+import Sidebar from '../sidebar/Sidebar';
+import CvSection from '../cv_container/CvSection';
+import DownloadButton from '../DownloadButton';
 
 const Main = () => {
   const defaultInfo = {
@@ -28,7 +20,6 @@ const Main = () => {
   const [educationList, setEducationList] = useState([]);
   const [jobList, setJobList] = useState([]);
   const [skills, setSkills] = useState([]);
-  const [isTabActive, setIsTabActive] = useState(true);
 
   const componentPDF = useRef();
 
@@ -115,51 +106,33 @@ const Main = () => {
   }
   return (
     <main>
-      <aside className="sidebar">
-        <>
-          <button className="btn" onClick={() => setIsTabActive(!isTabActive)}>
-            {isTabActive ? 'customize' : 'edit portfolio'}
-          </button>
-        </>
-        {isTabActive && (
-          <>
-            <FormInfo setPersonalInfo={setPersonalInfo} personalInfo={personalInfo} />
-            <FormProfile profile={profile} setProfile={setProfile} />
-            <JobList addJob={add} jobList={jobList} handleSaveJob={handleSave} handleDeleteJob={handleDelete} />
-            <EducationList
-              educationList={educationList}
-              addEducation={add}
-              handleSaveEducation={handleSave}
-              handleDeleteEducation={handleDelete}
-            />
-            <SkillsList
-              skillList={skills}
-              addSkill={add}
-              handleSaveSkill={handleSave}
-              handleDeleteSkill={handleDelete}
-            />
-          </>
-        )}
-        {!isTabActive && (
-          <CustomizeSection color={color} setColor={setColor} fontColor={fontColor} setFontColor={setFontColor} />
-        )}
-      </aside>
-      <section className="cv-section">
-        <button className="download" onClick={generatePdf}>
-          <span>Download</span>
-          <i className="fa-solid fa-file-pdf"></i>
-        </button>
-        <div className="wrapper">
-          <div ref={componentPDF} className="resume-container">
-            <InfoSection personalInfo={personalInfo} color={color} fontColor={fontColor} />
-            <ProfileSection profile={profile} />
-            <JobSection title="Experience" list={jobList} color={color} fontColor={fontColor} />
-            <div className="pagebreak"></div>
-            <EduSection title="Education" list={educationList} />
-            <SkillsSection skillList={skills} color={color} fontColor={fontColor} />
-          </div>
-        </div>
-      </section>
+      <Sidebar
+        setPersonalInfo={setPersonalInfo}
+        personalInfo={personalInfo}
+        profile={profile}
+        setProfile={setProfile}
+        jobList={jobList}
+        educationList={educationList}
+        skills={skills}
+        add={add}
+        handleSave={handleSave}
+        handleDelete={handleDelete}
+        color={color}
+        fontColor={fontColor}
+        setColor={setColor}
+        setFontColor={setFontColor}
+      />
+      <CvSection
+        componentPDF={componentPDF}
+        color={color}
+        fontColor={fontColor}
+        personalInfo={personalInfo}
+        profile={profile}
+        jobList={jobList}
+        educationList={educationList}
+        skills={skills}
+      />
+      <DownloadButton onClick={generatePdf} />
     </main>
   );
 };
