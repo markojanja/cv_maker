@@ -7,12 +7,12 @@ const SkillsForm = ({ skill, active, setSkill, setToggle, addSkill, handleSaveSk
 
   function handleSubmit(e) {
     e.preventDefault();
-    addSkill({ ...skill, id: Date.now() });
+    addSkill('skill', { ...skill, id: Date.now() });
     setSkill({ name: '' });
     setToggle(false);
   }
   function onSave() {
-    handleSaveSkill(skill, active);
+    handleSaveSkill('skill', skill, active);
     setToggle(false);
     setSkill({ name: '' });
     console.log(skill, active);
@@ -25,7 +25,7 @@ const SkillsForm = ({ skill, active, setSkill, setToggle, addSkill, handleSaveSk
 
   function onDelete() {
     console.log(skill, active);
-    handleDeleteSkill(active);
+    handleDeleteSkill('skill', active);
     setToggle(false);
     setSkill({ name: '' });
   }

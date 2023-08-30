@@ -9,7 +9,7 @@ const FormJob = ({ job, active, setJob, addJob, setToggle, handleSaveJob, handle
 
   function handleSubmit(e) {
     e.preventDefault();
-    addJob({ ...job, id: Date.now() });
+    addJob('job', { ...job, id: Date.now() });
     setJob({
       company: '',
       position: '',
@@ -20,7 +20,7 @@ const FormJob = ({ job, active, setJob, addJob, setToggle, handleSaveJob, handle
     setToggle(false);
   }
   function onSave() {
-    handleSaveJob(job, active);
+    handleSaveJob('job', job, active);
     setToggle(false);
     setJob({
       company: '',
@@ -31,7 +31,7 @@ const FormJob = ({ job, active, setJob, addJob, setToggle, handleSaveJob, handle
     });
   }
   function onDelete() {
-    handleDeleteJob(active);
+    handleDeleteJob('job', job, active);
     setToggle(false);
     setJob({
       company: '',

@@ -17,7 +17,7 @@ const FormEducation = ({
 
   function handleSubmit(e) {
     e.preventDefault();
-    addEducation({ ...education, id: Date.now() });
+    addEducation('education', { ...education, id: Date.now() });
     setEducation({
       school: '',
       degree: '',
@@ -27,7 +27,7 @@ const FormEducation = ({
     setToggle(false);
   }
   function onSave() {
-    handleSaveEducation(education, active);
+    handleSaveEducation('education', education, active);
     setToggle(false);
     setEducation({
       school: '',
@@ -37,7 +37,7 @@ const FormEducation = ({
     });
   }
   function onDelete() {
-    handleDeleteEducation(active);
+    handleDeleteEducation('education', active);
     setToggle(false);
     setEducation({
       school: '',
