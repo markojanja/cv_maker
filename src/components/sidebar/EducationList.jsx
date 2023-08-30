@@ -1,4 +1,4 @@
-import FormEducation from './forms/FormEducation';
+import FormEducation from '../forms/FormEducation';
 import { useState } from 'react';
 
 const EducationList = ({ addEducation, educationList, handleSaveEducation, handleDeleteEducation }) => {

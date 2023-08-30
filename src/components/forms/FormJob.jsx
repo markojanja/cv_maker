@@ -1,4 +1,4 @@
-import ButtonGroup from '../ButtonGroup';
+import ButtonGroup from '../sidebar/ButtonGroup';
 
 const FormJob = ({ job, active, setJob, addJob, setToggle, handleSaveJob, handleDeleteJob }) => {
   function handleInput(e) {

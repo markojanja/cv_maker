@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import Sidebar from '../sidebar/Sidebar';
 import CvSection from '../cv_container/CvSection';
-import DownloadButton from '../DownloadButton';
+import DownloadButton from './DownloadButton';
 
 const Main = () => {
   const defaultInfo = {

@@ -1,4 +1,4 @@
-import ButtonGroup from '../ButtonGroup';
+import ButtonGroup from '../sidebar/ButtonGroup';
 
 const SkillsForm = ({ skill, active, setSkill, setToggle, addSkill, handleSaveSkill, handleDeleteSkill }) => {
   function handleInput(e) {
@@ -15,7 +15,6 @@ const SkillsForm = ({ skill, active, setSkill, setToggle, addSkill, handleSaveSk
     handleSaveSkill('skill', skill, active);
     setToggle(false);
     setSkill({ name: '' });
-    console.log(skill, active);
   }
 
   function handleCancel() {
@@ -24,7 +23,6 @@ const SkillsForm = ({ skill, active, setSkill, setToggle, addSkill, handleSaveSk
   }
 
   function onDelete() {
-    console.log(skill, active);
     handleDeleteSkill('skill', active);
     setToggle(false);
     setSkill({ name: '' });

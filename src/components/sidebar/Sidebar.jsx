@@ -1,9 +1,9 @@
 import FormInfo from '../forms/FormInfo';
 import FormProfile from '../forms/FormProfile';
-import EducationList from '../EducationList';
-import JobList from '../JobList';
-import SkillsList from '../SkillsList';
-import CustomizeSection from '../CustomizeSection';
+import EducationList from './EducationList';
+import JobList from './JobList';
+import SkillsList from './SkillsList';
+import CustomizeSection from './CustomizeSection';
 import { useState } from 'react';
 
 const Sidebar = ({

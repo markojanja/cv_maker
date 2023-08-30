@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import SkillsForm from './forms/SkillsForm';
+import SkillsForm from '../forms/SkillsForm';
 
 const SkillsList = ({ skillList, addSkill, handleSaveSkill, handleDeleteSkill }) => {
   const [skill, setSkill] = useState({ name: '' });

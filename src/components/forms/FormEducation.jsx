@@ -1,4 +1,4 @@
-import ButtonGroup from '../ButtonGroup';
+import ButtonGroup from '../sidebar/ButtonGroup';
 
 const FormEducation = ({
   education,

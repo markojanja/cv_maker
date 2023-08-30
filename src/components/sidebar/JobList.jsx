@@ -1,4 +1,4 @@
-import FormJob from './forms/FormJob';
+import FormJob from '../forms/FormJob';
 import { useState } from 'react';
 
 const JobList = ({ addJob, jobList, handleSaveJob, handleDeleteJob }) => {
