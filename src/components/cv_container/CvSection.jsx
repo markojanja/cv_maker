@@ -1,4 +1,4 @@
-import React from 'react';
+import './CvSection.css';
 import InfoSection from '../sections/InfoSection';
 import ProfileSection from '../sections/ProfileSection';
 import JobSection from '../sections/JobSection';

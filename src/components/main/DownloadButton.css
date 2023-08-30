@@ -1,0 +1,19 @@
+.download {
+  position: fixed;
+  top: 20px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px 20px;
+  max-width: 150px;
+  border: none;
+  outline: none;
+  color: var(--main-color);
+  background-color: rgba(0, 0, 0, 1);
+  font-size: 1rem;
+  border: 1px solid var(--main-color);
+  cursor: pointer;
+  z-index: 2;
+}

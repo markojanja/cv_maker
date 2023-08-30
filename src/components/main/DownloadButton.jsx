@@ -1,4 +1,4 @@
-import React from 'react';
+import './DownloadButton.css';
 
 const DownloadButton = ({ onClick }) => {
   return (

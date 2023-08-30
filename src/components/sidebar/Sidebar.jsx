@@ -1,3 +1,4 @@
+import './Sidebar.css';
 import FormInfo from '../forms/FormInfo';
 import FormProfile from '../forms/FormProfile';
 import EducationList from './EducationList';
